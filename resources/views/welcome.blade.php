@@ -101,20 +101,32 @@ button{
                             ادخل المعلومات الخاصه بك   
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form autocomplete="off" method="post" action="{{ route('participation.send') }}"> 
+                                @csrf
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label" > الاسم </label>
-                                    <input type="text" id="verification" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label" > نوع الاشتراك </label>
+                                    <select name="type" class="form-select" aria-label="Default select example">
+                                        <option selected>
+                                            اسبوعي
+                                        </option>
+                                        <option value="1">
+                                            شهري
+                                        </option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label" > البريد الالكتروني </label>
-                                    <input type="text" id="verification" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label" > رقم الهاتف  </label>
-                                    <input type="text" id="verification" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="text" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 </div>
-                                <button type="button" class="btn btn-primary text-white" onclick="verify()">
+                                <button type="submit" class="btn btn-primary text-white">
                                 ارسال
                                 </button>
                             </form>
